@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Beautiful! 💕</title>
+    <link rel="stylesheet" href="styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Loading Animation -->
+    <div id="loader" class="loader">
+        <div class="heart-loader">
+            <div class="heart"></div>
+            <div class="heart"></div>
+            <div class="heart"></div>
+        </div>
+        <p class="loading-text">Preparing something special... 💕</p>
+    </div>
+
+    <!-- Background Elements -->
+    <div class="floating-hearts"></div>
+    <div class="sparkles"></div>
+
+    <!-- Music Toggle -->
+    <div class="music-toggle" id="musicToggle">
+        <i class="fas fa-music"></i>
+    </div>
+    <!-- Background Music -->
+    <audio id="backgroundMusic" loop>
+        <source src="music/Kyon Barfi 320 Kbps.mp3" type="audio/mpeg">
+        <source src="music/Kyon Barfi 320 Kbps.mp3" type="audio/ogg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Back Button -->
+    <button class="back-button" onclick="pageManager.goBack()">
+        <i class="fas fa-arrow-left"></i>
+    </button>
+
+    <!-- Landing Page -->
+    <div class="page page-active" data-page="landing">
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="birthday-title" data-aos="fade-up">
+                    Happy Birthday
+                    <span class="name-highlight">Beautiful!</span>
+                </h1>
+                <div class="birthday-cake" data-aos="zoom-in" data-aos-delay="500">
+                    🎂
+                </div>
+                <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="800">
+                    Today is all about celebrating the most amazing person I know! 💕
+                </p>
+                <button class="enter-button" onclick="pageManager.navigateTo('menu')" data-aos="fade-up"
+                    data-aos-delay="1200">
+                    Enter the Magic ✨
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Main Menu Page -->
+    <div class="page page-hidden" data-page="menu">
+        <section class="menu-section">
+            <div class="container">
+                <h1 class="menu-title" data-aos="fade-up">Choose Your Adventure 💕</h1>
+                <div class="menu-grid" data-aos="fade-up" data-aos-delay="300">
+                    <div class="menu-card" onclick="pageManager.navigateTo('gallery')" data-aos="zoom-in"
+                        data-aos-delay="100">
+                        <div class="card-icon">📸</div>
+                        <h3>See Our Photos</h3>
+                        <p>Beautiful memories captured</p>
+                        <div class="card-preview">Click to explore!</div>
+                    </div>
+                    <div class="menu-card" onclick="pageManager.navigateTo('reasons')" data-aos="zoom-in"
+                        data-aos-delay="300">
+                        <div class="card-icon">🌟</div>
+                        <h3>Why You're Amazing</h3>
+                        <p>All the reasons I adore you</p>
+                        <div class="card-preview">Discover your magic!</div>
+                    </div>
+                    <div class="menu-card" onclick="pageManager.navigateTo('wishes')" data-aos="zoom-in"
+                        data-aos-delay="400">
+                        <div class="card-icon">💕</div>
+                        <h3>Birthday Wishes</h3>
+                        <p>Heartfelt messages for you</p>
+                        <div class="card-preview">Feel the love!</div>
+                    </div>
+                    <div class="menu-card" onclick="pageManager.navigateTo('games')" data-aos="zoom-in"
+                        data-aos-delay="200">
+                        <div class="card-icon">🎮</div>
+                        <h3>Play Together</h3>
+                        <p>Fun games and quizzes</p>
+                        <div class="card-preview">Let's have fun!</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Photo Gallery Page -->
+    <div class="page page-hidden" data-page="gallery">
+        <section class="gallery-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Our Beautiful Memories 📸</h2>
+                <div class="gallery-instructions" data-aos="fade-up" data-aos-delay="200">
+                    <p>Click on any photo to view it in full size • Navigate with arrow buttons 📸</p>
+                </div>
+                <div class="photo-gallery" data-aos="fade-up" data-aos-delay="300">
+                    <div class="photo-item" data-photo-id="1" onclick="expandPhoto(1)">
+                        <img src="images/pic1.jpg" alt="Memory 1">
+                        <div class="photo-overlay">
+                            <p>Om ko manane ke liye bula bataye aye the alag bakchodi tha 🏖️</p>
+                        </div>
+
+                        <div class="photo-hearts"></div>
+                    </div>
+                    <div class="photo-item" data-photo-id="2" onclick="expandPhoto(2)">
+                        <img src="images/pic2.jpg" alt="Memory 2">
+                        <div class="photo-overlay">
+                            <p>Last Day of our last meet 😢</p>
+                        </div>
+
+                        <div class="photo-hearts"></div>
+                    </div>
+                    <div class="photo-item" data-photo-id="3" onclick="expandPhoto(3)">
+                        <img src="images/pic3.jpg" alt="Memory 3">
+                        <div class="photo-overlay">
+                            <p>Holiiiii 🎉</p>
+                        </div>
+
+                        <div class="photo-hearts"></div>
+                    </div>
+                    <div class="photo-item" data-photo-id="4" onclick="expandPhoto(4)">
+                        <img src="images/pic4.jpg" alt="Memory 4">
+                        <div class="photo-overlay">
+                            <p>Don't forget the BETRAYAL</p>
+                        </div>
+
+                        <div class="photo-hearts"></div>
+                    </div>
+                    <div class="photo-item" data-photo-id="5" onclick="expandPhoto(5)">
+                        <img src="images/sec1.jpg"
+                            alt="Memory 5">
+                        <div class="photo-overlay">
+                            <p>Remember the Dokha, Bhul jati ho na aap 😡</p>
+                        </div>
+
+                        <div class="photo-hearts"></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <!-- Photo Lightbox Modal -->
+    <div id="photo-lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()">×</button>
+            <button class="lightbox-nav lightbox-prev" onclick="navigatePhoto(-1)">‹</button>
+            <img id="lightbox-image" class="lightbox-image" alt="Photo">
+            <button class="lightbox-nav lightbox-next" onclick="navigatePhoto(1)">›</button>
+            <div id="lightbox-text" class="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <!-- Memory Lane -->
+
+    <!-- Reasons Why You're Amazing -->
+    <div class="page page-hidden" data-page="reasons">
+        <section class="reasons-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Reasons Why You're Amazing 🌟</h2>
+                <div class="reasons-instructions" data-aos="fade-up" data-aos-delay="200">
+                    <p>Click on any card to reveal why you're so amazing! 💕</p>
+                </div>
+                <div class="container-fluid">
+                    <!-- First Row -->
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="reason-card flippable" data-reason-id="1" onclick="flipReasonCard(1)">
+                                <div class="card-front">
+                                    <div class="reason-icon">💖</div>
+                                    <h3>Your Kind Heart</h3>
+                                    <p>Click to discover why...</p>
+                                </div>
+                                <div class="card-back">
+                                    <h3>Your Kind Heart 💖</h3>
+                                    <p>Pta nhi kaise but anzaan toh chhodo dusman ke liiye bhi worried ho jati hai but i guess its a gud thing
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="reason-card flippable" data-reason-id="2" onclick="flipReasonCard(2)">
+                                <div class="card-front">
+                                    <div class="reason-icon">😂</div>
+                                    <h3>Your Humor</h3>
+                                    <p>Click to discover why...</p>
+                                </div>
+                                <div class="card-back">
+                                    <h3>Your Amazing Humor 😂</h3>
+                                    <p>Nahi Humor bekar hai bas meri baat mano idc. hehe (aww mazak tha acche jokes karti ho aap) </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="reason-card flippable" data-reason-id="3" onclick="flipReasonCard(3)">
+                                <div class="card-front">
+                                    <div class="reason-icon">🌈</div>
+                                    <h3>Your Positivity</h3>
+                                    <p>Click to discover why...</p>
+                                </div>
+                                <div class="card-back">
+                                    <h3>Your Bright Positivity 🌈</h3>
+                                    <p>Bright positivity, hmmmm postive toh aap qki kitna baar bhi haar jao ya fail ho jao ( ehmm presentation) try hamesa krti ho achha karne ka i  like this about you.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Second Row -->
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="reason-card flippable" data-reason-id="4" onclick="flipReasonCard(4)">
+                                <div class="card-front">
+                                    <div class="reason-icon">🎨</div>
+                                    <h3>Your Creativity</h3>
+                                    <p>Click to discover why...</p>
+                                </div>
+                                <div class="card-back">
+                                    <h3>Your Beautiful Creativity 🎨</h3>
+                                    <p>Do i need to say more u shreya joki all india 4k rank par thi ALL INDIA and mughe batana hoga ki woo kitni creative hai hahaha i stand my hands.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="reason-card flippable" data-reason-id="5" onclick="flipReasonCard(5)">
+                                <div class="card-front">
+                                    <div class="reason-icon">🤗</div>
+                                    <h3>Your Loyalty</h3>
+                                    <p>Click to discover why...</p>
+                                </div>
+                                <div class="card-back">
+                                    <h3>Your Unwavering Loyalty 🤗</h3>
+                                    <p>YYeah u are the best one arround following through any path and problems never leaving my side (ab toh chhod diya busy ho gyi ho na) but i still love you. cute little loyal squirrel 🐿️</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="reason-card flippable" data-reason-id="6" onclick="flipReasonCard(6)">
+                                <div class="card-front">
+                                    <div class="reason-icon">✨</div>
+                                    <h3>Your Uniqueness</h3>
+                                    <p>Click to discover why...</p>
+                                </div>
+                                <div class="card-back">
+                                    <h3>Your Special Uniqueness ✨</h3>
+                                    <p>Hmm from unique thoughts to opnion to personality you are the best one arround, art food thoughs fun everything is unique about you pta hai q because you are only 1 in this fucking wolrd the best 1 ever.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Third Row - Centered -->
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="reason-card flippable" data-reason-id="7" onclick="flipReasonCard(7)">
+                                <div class="card-front">
+                                    <div class="reason-icon">👑</div>
+                                    <h3>You're Simply Perfect</h3>
+                                    <p>The ultimate reason...</p>
+                                </div>
+                                <div class="card-back">
+                                    <h3>You're Simply Perfect 👑</h3>
+                                    <p>Ab na bol rha mai bahut bol diya but yes like i said you are just perfect 💕</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <!-- Birthday Wishes -->
+    <div class="page page-hidden" data-page="wishes">
+        <section class="wishes-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">My Birthday Wishes For You 💕</h2>
+
+                <div class="wishes-content" data-aos="fade-up" data-aos-delay="300">
+                    <div class="typewriter-container">
+                        <p id="typewriter-text" class="typewriter"></p>
+                        <div class="typewriter-complete" id="typewriter-complete" style="display: none;">
+                            <p>✨ Message complete! Now explore the wishes below... ✨</p>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Birthday Cake -->
+                    <div class="birthday-cake-container" data-aos="zoom-in" data-aos-delay="500">
+                        <div class="interactive-cake">
+                            <div class="cake-base">🎂</div>
+                            <div class="candles">
+                                <div class="candle" data-candle="1" onclick="blowCandle(1)">🕯️</div>
+                                <div class="candle" data-candle="2" onclick="blowCandle(2)">🕯️</div>
+                                <div class="candle" data-candle="3" onclick="blowCandle(3)">🕯️</div>
+                                <div class="candle" data-candle="4" onclick="blowCandle(4)">🕯️</div>
+                                <div class="candle" data-candle="5" onclick="blowCandle(5)">🕯️</div>
+                            </div>
+                            <p class="cake-instruction">Click candles to blow them out! 💨</p>
+                        </div>
+                    </div>
+
+                    <!-- Floating Wish Bubbles -->
+                    <div class="wish-bubbles-container">
+                        <div class="wish-bubble" data-wish="1">
+                            <span class="bubble-icon">💫</span>
+                            <div class="bubble-content">
+                                <h4>Dream Big</h4>
+                                <p>May all your wildest dreams come true this year! ✨</p>
+                            </div>
+                        </div>
+                        <div class="wish-bubble" data-wish="2">
+                            <span class="bubble-icon">🌟</span>
+                            <div class="bubble-content">
+                                <h4>Shine Bright</h4>
+                                <p>Keep shining your beautiful light on everyone around you! 🌟</p>
+                            </div>
+                        </div>
+                        <div class="wish-bubble" data-wish="3">
+                            <span class="bubble-icon">💖</span>
+                            <div class="bubble-content">
+                                <h4>Love Always</h4>
+                                <p>May you always feel as loved as you make others feel! 💕</p>
+                            </div>
+                        </div>
+                        <div class="wish-bubble" data-wish="4">
+                            <span class="bubble-icon">🎈</span>
+                            <div class="bubble-content">
+                                <h4>Joy & Laughter</h4>
+                                <p>May your days be filled with endless joy and laughter! 😄</p>
+                            </div>
+                        </div>
+                        <div class="wish-bubble" data-wish="5">
+                            <span class="bubble-icon">🌈</span>
+                            <div class="bubble-content">
+                                <h4>Colorful Adventures</h4>
+                                <p>May your life be as colorful and beautiful as a rainbow! 🌈</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Fun Interactive Games -->
+    <div class="page page-hidden" data-page="games">
+        <section class="game-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Let's Play Together! 🎮</h2>
+                <div class="games-instructions" data-aos="fade-up" data-aos-delay="200">
+                    <p>Choose a game to play • Complete all games to unlock a special surprise! 🏆</p>
+                </div>
+
+                <!-- Game Selection Menu -->
+                <div class="games-menu" data-aos="fade-up" data-aos-delay="300">
+                    <div class="game-option" onclick="startGame('quiz')" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="game-icon">🧠</div>
+                        <h3>Friendship Quiz</h3>
+                        <p>Test how well you know our friendship!</p>
+                        <div class="game-status" id="quiz-status">Not Started</div>
+                    </div>
+                    <div class="game-option" onclick="startGame('memory')" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="game-icon">🃏</div>
+                        <h3>Memory Match</h3>
+                        <p>Match pairs of our favorite memories!</p>
+                        <div class="game-status" id="memory-status">Not Started</div>
+                    </div>
+                    <div class="game-option" onclick="startGame('wordsearch')" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="game-icon">🔍</div>
+                        <h3>Word Search</h3>
+                        <p>Find friendship words hidden in the grid!</p>
+                        <div class="game-status" id="wordsearch-status">Not Started</div>
+                    </div>
+                    <div class="game-option" onclick="startGame('guessing')" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="game-icon">🎯</div>
+                        <h3>Guess the Memory</h3>
+                        <p>Guess the memory from clues!</p>
+                        <div class="game-status" id="guessing-status">Not Started</div>
+                    </div>
+                </div>
+
+                <!-- Friendship Quiz Game -->
+                <div id="quiz-game" class="game-container" style="display: none;">
+                    <div class="game-header">
+                        <h3>Friendship Quiz 🧠</h3>
+                        <button class="back-to-menu-btn" onclick="backToGamesMenu()">← Back to Games</button>
+                    </div>
+                    <div class="quiz-container">
+                        <div class="question-progress">
+                            <span id="question-number">1</span> / <span id="total-questions">5</span>
+                        </div>
+                        <div class="question-container">
+                            <h3 id="question-text">What's my favorite thing about our friendship?</h3>
+                            <div class="options">
+                                <button class="option-btn" onclick="selectAnswer(0)">How we can talk for hours</button>
+                                <button class="option-btn" onclick="selectAnswer(1)">Our inside jokes</button>
+                                <button class="option-btn" onclick="selectAnswer(2)">How we support each other</button>
+                                <button class="option-btn" onclick="selectAnswer(3)">All of the above! 💕</button>
+                            </div>
+                        </div>
+                        <div class="quiz-result" id="quiz-result" style="display: none;">
+                            <h3>Perfect! 🎉</h3>
+                            <p>You know me so well! That's exactly why you're the best friend ever!</p>
+                            <button onclick="nextQuestion()" class="next-btn">Next Question</button>
+                        </div>
+                        <div class="quiz-final" id="quiz-final" style="display: none;">
+                            <h3>Quiz Complete! 🏆</h3>
+                            <p>You got <span id="final-score">0</span> out of 5 correct!</p>
+                            <p>You really know our friendship well! 💕</p>
+                            <button onclick="backToGamesMenu()" class="menu-btn">Back to Games</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Memory Match Game -->
+                <div id="memory-game" class="game-container" style="display: none;">
+                    <div class="game-header">
+                        <h3>Memory Match 🃏</h3>
+                        <button class="back-to-menu-btn" onclick="backToGamesMenu()">← Back to Games</button>
+                    </div>
+                    <div class="memory-container">
+                        <div class="memory-stats">
+                            <div>Moves: <span id="move-count">0</span></div>
+                            <div>Matches: <span id="match-count">0</span> / 6</div>
+                        </div>
+                        <div class="memory-grid" id="memory-grid">
+                            <!-- Cards will be generated by JavaScript -->
+                        </div>
+                        <div class="memory-complete" id="memory-complete" style="display: none;">
+                            <h3>Memory Match Complete! 🎉</h3>
+                            <p>You matched all pairs in <span id="final-moves">0</span> moves!</p>
+                            <button onclick="backToGamesMenu()" class="menu-btn">Back to Games</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Word Search Game -->
+                <div id="wordsearch-game" class="game-container" style="display: none;">
+                    <div class="game-header">
+                        <h3>Word Search 🔍</h3>
+                        <button class="back-to-menu-btn" onclick="backToGamesMenu()">← Back to Games</button>
+                    </div>
+                    <div class="wordsearch-container">
+                        <div class="words-to-find">
+                            <h4>Find these words:</h4>
+                            <div class="word-list" id="word-list">
+                                <!-- Words will be generated by JavaScript -->
+                            </div>
+                        </div>
+                        <div class="wordsearch-grid" id="wordsearch-grid">
+                            <!-- Grid will be generated by JavaScript -->
+                        </div>
+                        <div class="wordsearch-complete" id="wordsearch-complete" style="display: none;">
+                            <h3>Word Search Complete! 🎉</h3>
+                            <p>You found all the friendship words!</p>
+                            <button onclick="backToGamesMenu()" class="menu-btn">Back to Games</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Guess the Memory Game -->
+                <div id="guessing-game" class="game-container" style="display: none;">
+                    <div class="game-header">
+                        <h3>Guess the Memory 🎯</h3>
+                        <button class="back-to-menu-btn" onclick="backToGamesMenu()">← Back to Games</button>
+                    </div>
+                    <div class="guessing-container">
+                        <div class="clue-container">
+                            <h4>Clue:</h4>
+                            <p id="memory-clue">This memory involves laughter and a rainy day...</p>
+                        </div>
+                        <div class="guess-options">
+                            <button class="guess-btn" onclick="guessMemory(0)">Beach Adventure</button>
+                            <button class="guess-btn" onclick="guessMemory(1)">Dancing in the Rain</button>
+                            <button class="guess-btn" onclick="guessMemory(2)">Movie Night</button>
+                            <button class="guess-btn" onclick="guessMemory(3)">Road Trip</button>
+                        </div>
+                        <div class="guess-result" id="guess-result" style="display: none;">
+                            <h3>Correct! 🎉</h3>
+                            <p>You remember our memories so well!</p>
+                            <button onclick="nextMemoryGuess()" class="next-btn">Next Memory</button>
+                        </div>
+                        <div class="guessing-complete" id="guessing-complete" style="display: none;">
+                            <h3>Memory Guessing Complete! 🏆</h3>
+                            <p>You guessed <span id="memory-score">0</span> out of 4 memories correctly!</p>
+                            <button onclick="backToGamesMenu()" class="menu-btn">Back to Games</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Games Completion -->
+                <div class="games-counter">
+                    <span id="games-completed">0</span> / 4 Games Completed 🎮
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Surprise Box Page -->
+
+    <!-- Secret Page (Hidden) -->
+    <div class="page page-hidden" data-page="secret">
+        <section class="secret-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">🤫 Secret Page Unlocked! 🤫</h2>
+                <div class="secret-content" data-aos="fade-up" data-aos-delay="300">
+                    <div class="secret-welcome">
+                        <h3>Congratulations, Secret Explorer! 🕵️‍♀️</h3>
+                        <p>You found the hidden page! This secret area is just for the most curious and adventurous souls.</p>
+                    </div>
+                    
+                    <div class="secret-gallery">
+                        <h4>Secret Memory Vault 📸</h4>
+                        <div class="secret-photos">
+                            <div class="secret-photo-item" data-aos="zoom-in" data-aos-delay="100">
+                                <img src="https://via.placeholder.com/200x200/FF1493/FFFFFF?text=Secret+1" alt="Secret Memory 1">
+                                <p>The adventure we never told anyone about! 🗺️</p>
+                            </div>
+                            <div class="secret-photo-item" data-aos="zoom-in" data-aos-delay="200">
+                                <img src="https://via.placeholder.com/200x200/FF69B4/FFFFFF?text=Secret+2" alt="Secret Memory 2">
+                                <p>That time we got completely lost but had the best time! 🌟</p>
+                            </div>
+                            <div class="secret-photo-item" data-aos="zoom-in" data-aos-delay="300">
+                                <img src="https://via.placeholder.com/200x200/FFB6C1/FFFFFF?text=Secret+3" alt="Secret Memory 3">
+                                <p>Our midnight snack adventure that became legendary! 🍕</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="secret-messages">
+                        <h4>Secret Messages Just For You 💌</h4>
+                        <div class="secret-message-cards">
+                            <div class="secret-card" data-aos="flip-left" data-aos-delay="400">
+                                <h5>Secret #1</h5>
+                                <p>You inspire me every single day to be a better person. Your courage, kindness, and authenticity make the world a brighter place. 🌟</p>
+                            </div>
+                            <div class="secret-card" data-aos="flip-left" data-aos-delay="500">
+                                <h5>Secret #2</h5>
+                                <p>I'm so grateful for all our inside jokes, spontaneous adventures, and deep conversations. You make ordinary moments extraordinary! ✨</p>
+                            </div>
+                            <div class="secret-card" data-aos="flip-left" data-aos-delay="600">
+                                <h5>Secret #3</h5>
+                                <p>No matter where life takes us, you'll always be one of my favorite people in the entire universe. Thank you for being you! 💕</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="secret-achievement">
+                        <h4>🏆 Secret Explorer Achievement Unlocked! 🏆</h4>
+                        <p>You've discovered the hidden page! This makes you officially the most thorough birthday celebrant ever!</p>
+                        <div class="achievement-badge">
+                            <span class="badge-icon">🕵️‍♀️</span>
+                            <span class="badge-text">Master Detective</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Achievement Gallery Page (Hidden) -->
+    <div class="page page-hidden" data-page="achievements">
+        <section class="achievements-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">🏆 Achievement Gallery 🏆</h2>
+                <div class="achievements-content" data-aos="fade-up" data-aos-delay="300">
+                    <div class="achievements-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" id="total-achievements">0</span>
+                            <span class="stat-label">Achievements Unlocked</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="completion-percentage">0%</span>
+                            <span class="stat-label">Completion</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="secret-discoveries">0</span>
+                            <span class="stat-label">Secrets Found</span>
+                        </div>
+                    </div>
+                    
+                    <div class="achievements-grid" id="achievements-grid">
+                        <!-- Achievements will be populated by JavaScript -->
+                    </div>
+                    
+                    <div class="completion-message" id="completion-message" style="display: none;">
+                        <h3>🎉 Perfect Score! 🎉</h3>
+                        <p>You've unlocked every single achievement! You are the ultimate birthday celebration champion!</p>
+                        <div class="completion-crown">👑</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ARIA live region for announcements -->
+    <div id="aria-live" aria-live="polite" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">
+    </div>
+
+    <!-- Photo Lightbox -->
+    <div id="photo-lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()">×</button>
+            <button class="lightbox-nav lightbox-prev" onclick="navigatePhoto(-1)">‹</button>
+            <img id="lightbox-image" class="lightbox-image" alt="Photo">
+            <button class="lightbox-nav lightbox-next" onclick="navigatePhoto(1)">›</button>
+            <div id="lightbox-text" class="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <!-- ARIA Live Region for Announcements -->
+    <div id="aria-live" aria-live="polite" aria-atomic="true" style="position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden;"></div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
